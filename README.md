@@ -74,8 +74,8 @@ Given a JSON like this:
 {
     "firstname": "Diego",
     "lastname": "Gómez",
-    "age": "30",
     "details": {
+        "age": "30",
         "height": "1.85",
         "hobbies": [
             "coding",
@@ -98,8 +98,8 @@ And the Mediawiki call:
 {
     "firstname": "Diego",
     "lastname": "Gómez",
-    "age": "30",
     "details": {
+        "age": "30",
         "height": "1.85",
         "hobbies": [
             "coding",
@@ -107,8 +107,8 @@ And the Mediawiki call:
             "gaming"
         ],
         "countries": [
-            "Spain",
             "Colombia",
+            "Spain",            
             "France"
         ]
     }
@@ -120,7 +120,6 @@ The extension will generate the following output:
 
 ```plaintext
 {{mainTemplate
-|person={{person
     |firstname=Diego
     |lastname=Gómez
     |age=30
@@ -130,8 +129,46 @@ The extension will generate the following output:
         |countries={{countries|item=Spain}}{{countries|item=Colombia}}{{countries|item=France}}
     }}
 }}
-}}
 ```
+
+So, you need to create a template for each dimension:
+
+#### Person template:
+
+```html
+<div class="data-container">
+   <b>First name</b>: {{{firstname}}}<br>
+   <b>Last name</b>: {{{lastname}}}<br>
+   {{{details}}}
+</div>
+```
+
+#### Details template:
+```html
+<div style="border: 1px solid #000; padding:10px">
+   <strong>Height</strong>: {{{height}}}<br>
+   <strong>Age</strong>: {{{age}}}<br>
+   <strong>Hobbies</strong>:
+   <ul>
+      {{{hobbies}}}
+   </ul>
+   <strong>Countries</strong>:
+   <ul>
+      {{{countries}}}
+   </ul>
+</div>
+```
+
+#### Hobbies template:
+```html
+<li style="color:red">{{{item}}}</li>
+```
+
+#### Countries template:
+```html
+<span style="color:blue">{{{item}}}</span><br>
+```
+
 
 ### Error Messages
 
