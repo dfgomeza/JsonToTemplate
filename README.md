@@ -159,11 +159,11 @@ You need to create a template for each dimension. The name of the extension will
 The extension will generate the following output for Mediawiki:
 
 ```plaintext
-{{mainTemplate
+{{person
     |firstname=Diego
     |lastname=Gómez
-    |age=30
     |details={{details
+        |age=30
         |height=1.85
         |hobbies={{hobbies|item=coding}}{{hobbies|item=reading}}{{hobbies|item=gaming}}
         |countries={{countries|item=Spain}}{{countries|item=Colombia}}{{countries|item=France}}
