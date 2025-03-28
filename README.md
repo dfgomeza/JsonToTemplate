@@ -116,31 +116,31 @@ And the Mediawiki call:
 </json>
 ```
 
-You need to create a template for each dimension:
+You need to create a template for each dimension. The name of the extension will be the same as the key of the list or array::
 
 #### Person template:
 
 ```html
 <div class="data-container">
-   <b>First name</b>: {{{firstname}}}<br>
-   <b>Last name</b>: {{{lastname}}}<br>
-   {{{details}}}
+<b>First name</b>: {{{firstname}}}<br>
+<b>Last name</b>: {{{lastname}}}<br>
+{{{details}}}
 </div>
 ```
 
 #### Details template:
 ```html
 <div style="border: 1px solid #000; padding:10px">
-   <strong>Height</strong>: {{{height}}}<br>
-   <strong>Age</strong>: {{{age}}}<br>
-   <strong>Hobbies</strong>:
-   <ul>
-      {{{hobbies}}}
-   </ul>
-   <strong>Countries</strong>:
-   <ul>
-      {{{countries}}}
-   </ul>
+<strong>Height</strong>: {{{height}}}<br>
+<strong>Age</strong>: {{{age}}}<br>
+<strong>Hobbies</strong>:
+<ul>
+{{{hobbies}}}
+</ul>
+<strong>Countries</strong>:
+<ul>
+{{{countries}}}
+</ul>
 </div>
 ```
 
