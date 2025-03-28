@@ -1,0 +1,4 @@
+{
+    "jsonToTemplate-desc": "Allows rendering JSON into MediaWiki templates.",
+    "jsonToTemplate-invalid-json": "Error: Invalid JSON"
+}

@@ -1,0 +1,8 @@
+{
+    "name": "JsonToTemplate",
+    "version": "1.0.0",
+    "author": "Diego F. Gómez",
+    "description": "Allows to convert JSON into MediaWiki template calls",
+    "type": "parserhook",
+    "manifest_version": 1
+}
