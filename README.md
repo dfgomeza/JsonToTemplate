@@ -116,22 +116,7 @@ And the Mediawiki call:
 </json>
 ```
 
-The extension will generate the following output:
-
-```plaintext
-{{mainTemplate
-    |firstname=Diego
-    |lastname=Gómez
-    |age=30
-    |details={{details
-        |height=1.85
-        |hobbies={{hobbies|item=coding}}{{hobbies|item=reading}}{{hobbies|item=gaming}}
-        |countries={{countries|item=Spain}}{{countries|item=Colombia}}{{countries|item=France}}
-    }}
-}}
-```
-
-So, you need to create a template for each dimension:
+You need to create a template for each dimension:
 
 #### Person template:
 
@@ -169,6 +154,22 @@ So, you need to create a template for each dimension:
 <span style="color:blue">{{{item}}}</span><br>
 ```
 
+### Output
+
+The extension will generate the following output for Mediawiki:
+
+```plaintext
+{{mainTemplate
+    |firstname=Diego
+    |lastname=Gómez
+    |age=30
+    |details={{details
+        |height=1.85
+        |hobbies={{hobbies|item=coding}}{{hobbies|item=reading}}{{hobbies|item=gaming}}
+        |countries={{countries|item=Spain}}{{countries|item=Colombia}}{{countries|item=France}}
+    }}
+}}
+```
 
 ### Error Messages
 
