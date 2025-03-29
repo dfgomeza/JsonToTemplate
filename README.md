@@ -146,7 +146,7 @@ Then you must create a template for each dimension of the json. The name of the 
 </div>
 ```
 
-List or array templates should only contain the "item" layout, using the {{{item}}} variable:
+List or object templates should only contain the "item" layout, using the {{{item}}} variable:
 
 #### "hobbies" template:
 ```html
