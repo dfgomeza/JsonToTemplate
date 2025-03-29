@@ -120,7 +120,7 @@ You must put the name of the main template in the "template" attribute. In this 
 
 Then you must create a template for each dimension of the json. The name of the Mediawiki Template will be the same as the key of the list or array:
 
-#### Person template:
+#### "person" template:
 
 ```html
 <div class="data-container">
