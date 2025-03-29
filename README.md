@@ -11,7 +11,7 @@ JsonToTemplate is a MediaWiki extension that allows converting JSON data into Me
 
 ## Requirements
 
-- MediaWiki 1.31 or higher.
+- MediaWiki 1.31 (It has only been tested in this version).
 - PHP 7.0 or higher.
 
 ## Installation
@@ -72,8 +72,8 @@ Given a JSON like this:
 
 ```json
 {
-    "firstname": "Diego",
-    "lastname": "Gómez",
+    "firstname": "John",
+    "lastname": "Doe",
     "details": {
         "age": "30",
         "height": "1.85",
@@ -83,8 +83,8 @@ Given a JSON like this:
             "gaming"
         ],
         "countries": [
-            "Spain",
             "Colombia",
+            "Spain",            
             "France"
         ]
     }
@@ -96,8 +96,8 @@ And the Mediawiki call:
 ```html
 <json template="person">
 {
-    "firstname": "Diego",
-    "lastname": "Gómez",
+    "firstname": "John",
+    "lastname": "Doe",
     "details": {
         "age": "30",
         "height": "1.85",
@@ -116,7 +116,9 @@ And the Mediawiki call:
 </json>
 ```
 
-You need to create a template for each dimension. The name of the extension will be the same as the key of the list or array::
+You must put the name of the main template in the "template" attribute. In this case <json template="person">.
+
+Then you must create a template for each dimension of the json. The name of the Mediawiki Template will be the same as the key of the list or array:
 
 #### Person template:
 
@@ -128,7 +130,7 @@ You need to create a template for each dimension. The name of the extension will
 </div>
 ```
 
-#### Details template:
+#### "details" template:
 ```html
 <div style="border: 1px solid #000; padding:10px">
 <strong>Height</strong>: {{{height}}}<br>
@@ -144,29 +146,31 @@ You need to create a template for each dimension. The name of the extension will
 </div>
 ```
 
-#### Hobbies template:
+List or array templates should only contain the "item" layout, using the {{{item}}} variable:
+
+#### "hobbies" template:
 ```html
 <li style="color:red">{{{item}}}</li>
 ```
 
-#### Countries template:
+#### "countries" template:
 ```html
 <span style="color:blue">{{{item}}}</span><br>
 ```
 
 ### Output
 
-The extension will generate the following output for Mediawiki:
+The extension will generate the following output for MediaWiki:
 
 ```plaintext
 {{person
-    |firstname=Diego
-    |lastname=Gómez
+    |firstname=Jhon
+    |lastname=Doe
     |details={{details
         |age=30
         |height=1.85
         |hobbies={{hobbies|item=coding}}{{hobbies|item=reading}}{{hobbies|item=gaming}}
-        |countries={{countries|item=Spain}}{{countries|item=Colombia}}{{countries|item=France}}
+        |countries={{countries|item=Colombia}}{{countries|item=Spain}}{{countries|item=France}}
     }}
 }}
 ```
